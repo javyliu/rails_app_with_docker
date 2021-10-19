@@ -6,8 +6,10 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
+      POSTGRES_USER: javy_liu
       POSTGRES_PASSWORD: javy@123123
   web:
+    container_name: rapp
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
