@@ -1,7 +1,7 @@
 FROM  ruby:alpine
 
 ARG RAILS_ROOT=/app
-ARG BUILD_PACKAGES="build-base curl-dev git bash yarn"
+ARG BUILD_PACKAGES="build-base curl-dev git yarn"
 ARG DEV_PACKAGES="postgresql-dev yaml-dev zlib-dev nodejs"
 ARG RUBY_PACKAGES="tzdata imagemagick"
 

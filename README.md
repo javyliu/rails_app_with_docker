@@ -18,7 +18,7 @@
 
 * 执行 
 ```shell
- docker-compose run --no-deps web bundle exec rails new . --force --database=postgresql -B
+ docker-compose run --no-deps --rm web bundle exec rails new . --force --database=postgresql -B
 ```
 通过容器创建一个rails应用， --no-deps 表示不启动依赖服务
 
