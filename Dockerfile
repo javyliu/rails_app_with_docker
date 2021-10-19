@@ -17,7 +17,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk update \
     && apk upgrade \
     && apk add --update --no-cache  $BUILD_PACKAGES $DEV_PACKAGES $RUBY_PACKAGES
-    #&& gem update --system
 
 COPY Gemfile* ./
 COPY entrypoint.sh /usr/bin/
@@ -29,14 +28,15 @@ RUN bundle config disable_platform_warnings true \
     && bundle config set --local path '/app/vendor/bundle' \
     && bundle install -j4 --retry 3
 
+#生产环境时可用
 #RUN bundle config --global frozen 1 \
 #    && bundle config disable_platform_warnings true \
 #    && bundle config set --local path 'vendor/bundle' \
 #    && bundle install -j4 --retry 3
-    #&& bundle config set --local without 'development:test:assets'\
-    #&& rm -rf vendor/bundle/ruby/3.0.0/cache/*.gem \
-    #&& find vendor/bundle/ruby/3.0.0/gems/ -name "*.c" -delete \
-    #&& find vendor/bundle/ruby/3.0.0/gems/ -name "*.o" -delete
+#    && bundle config set --local without 'development:test:assets'\
+#    && rm -rf vendor/bundle/ruby/3.0.0/cache/*.gem \
+#    && find vendor/bundle/ruby/3.0.0/gems/ -name "*.c" -delete \
+#    && find vendor/bundle/ruby/3.0.0/gems/ -name "*.o" -delete
 
 
 
