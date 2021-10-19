@@ -29,9 +29,7 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 
-RUN mkdir -p $RAILS_ROOT/vendor/bundle \
-    && bundle config disable_platform_warnings true \
-    && bundle config set --local path "$RAILS_ROOT/vendor/bundle" \
+RUN && bundle config disable_platform_warnings true \
     && bundle install -j4 --retry 3
 
 #生产环境时可用
