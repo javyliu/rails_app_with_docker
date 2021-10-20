@@ -16,6 +16,14 @@
 
 * 新建docker-compose.yml 文件，用来配置相应docker服务
 
+# 使用
+
+* 初始化环境变量，更改init_env中的ps用户名及密码然后执行
+
+```shell
+  ./init_env
+```
+
 * 新建一个rails 应用
 ```shell
   ./create_app
@@ -27,6 +35,11 @@
  docker-compose run --no-deps --rm web bundle exec rails new . --force --database=postgresql -B
 ```
 通过容器创建一个rails应用， --no-deps 表示不启动依赖服务
+
+* 设置bundle 路径
+```shell
+docker-compose run --rm --no-deps web bundle config set --local path 'vendor/bundle'
+```
 
 * 创建应用后会得到一个新的Gemfile 及 Gemfile.lock 文件，更改gem source 为 https://gems.ruby-china.com 后安装gems
 
