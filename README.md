@@ -59,3 +59,17 @@ docker-compose run --rm --no-deps web bundle config set --local path 'vendor/bun
 ```shell
  docker-compose up
 ```
+每次执行命令都要写 docker-compose exec web ....
+可以添加一个别名
+```shell
+echo "alias dc='docker-compose exec web bundle exec '">>~/.bashrc
+. ~/.bashrc
+```
+执行命令：
+```shell
+dc rails generate controller post index
+dc rails generate scaffold user name pwd
+dc rails db:migrate
+dc rails db:rollback
+```
+
