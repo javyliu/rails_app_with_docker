@@ -30,6 +30,7 @@ ENTRYPOINT ["entrypoint.sh"]
 
 
 RUN bundle config disable_platform_warnings true \
+    && bundle config set --local path '/usr/local/tmp_bundle' \
     && bundle install -j4 --retry 3
 
 #生产环境时可用
