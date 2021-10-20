@@ -8,7 +8,7 @@
 echo ----${PQ_USER} == ${PQ_PASSWORD}-------
 
 docker-compose run --rm --no-deps web sh <<HERE
-bundle exec rails new . --force --database=postgresql -B --skip-javascript
+bundle exec rails new . --force --database=postgresql -B
 bundle config set --local path 'vendor/bundle'
 sed -i 's!rubygems.org!gems.ruby-china.com!' Gemfile
 bundle install

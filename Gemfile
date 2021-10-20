@@ -1,3 +1,3 @@
 source 'https://gems.ruby-china.com'
 
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 6.1'
