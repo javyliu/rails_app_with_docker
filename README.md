@@ -37,7 +37,7 @@
 * 更改database.yml 文件 然后执行
 ```shell
  docker-compose run --rm --no-deps web bundle exec rails webpacker:install
- docker-compose run --rm --no-deps web bundle exec rails db:create
+ docker-compose run --rm web bundle exec rails db:create
 ```
 
 
