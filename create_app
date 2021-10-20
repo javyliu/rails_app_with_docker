@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+# Author: javy liu
+#Date & Time: 2021-10-20 10:36:34
+#Description:create a rails app by the rapp_in_docker
+
+docker-compose run --no-deps web bundle exec rails new . --force --database=postgresql -B
+
+sed -i 's!//rubygems.org!gems.ruby-china.com!' Gemfile
+
+docker-compose run --no-deps --rm web bundle exec rails webpacker:install
+
+sed -i -r '/username: app|password: </d;/encoding:/a\
+  host: db\
+  username: javy_liu\
+  password: javy@123123
+' config/database.yml
+
+docker-compose run --rm web bundle exec rails db:create
