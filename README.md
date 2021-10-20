@@ -22,10 +22,10 @@
 ```
 通过容器创建一个rails应用， --no-deps 表示不启动依赖服务
 
-* 创建应用后会得到一个新的Gemfile 及 Gemfile.lock 文件，更改gem source 为 https://gems.ruby-china.com 后重新编译
+* 创建应用后会得到一个新的Gemfile 及 Gemfile.lock 文件，更改gem source 为 https://gems.ruby-china.com 后安装gems
 
 ```shell
- docker-compose build
+ docker-compose run --rm web bundle install
 ```
 
 * 更改database.yml 文件 然后执行
@@ -39,4 +39,4 @@
  docker-compose up 
 ```
 
-## 注
+
