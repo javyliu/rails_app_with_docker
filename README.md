@@ -25,13 +25,13 @@
 * 创建应用后会得到一个新的Gemfile 及 Gemfile.lock 文件，更改gem source 为 https://gems.ruby-china.com 后安装gems
 
 ```shell
- docker-compose run --rm web bundle install
+ docker-compose run --rm --no-deps web bundle install
 ```
 
 * 更改database.yml 文件 然后执行
 ```shell
- docker-compose run --rm web bundle exec rails webpacker:install
- docker-compose run --rm web bundle exec rails db:create
+ docker-compose run --rm --no-deps web bundle exec rails webpacker:install
+ docker-compose run --rm --no-deps web bundle exec rails db:create
 ```
 
 # 最后启动应用
