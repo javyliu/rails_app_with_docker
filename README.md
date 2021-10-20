@@ -16,6 +16,12 @@
 
 * 新建docker-compose.yml 文件，用来配置相应docker服务
 
+* 新建一个rails 应用
+```shell
+  ./create_app
+```
+或依次执行如下
+
 * 执行 
 ```shell
  docker-compose run --no-deps --rm web bundle exec rails new . --force --database=postgresql -B
@@ -33,6 +39,8 @@
  docker-compose run --rm --no-deps web bundle exec rails webpacker:install
  docker-compose run --rm --no-deps web bundle exec rails db:create
 ```
+
+
 
 # 最后启动应用
 ```shell

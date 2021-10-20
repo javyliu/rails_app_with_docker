@@ -7,7 +7,7 @@ docker-compose run --no-deps web bundle exec rails new . --force --database=post
 
 sed -i 's!rubygems.org!gems.ruby-china.com!' Gemfile
 
-docker-compose run --no-deps --rm web bundle exec rails webpacker:install
+docker-compose run --no-deps web bundle exec rails webpacker:install
 
 sed -i -r '/username: app|password: </d;/encoding:/a\
   host: db\
@@ -15,4 +15,4 @@ sed -i -r '/username: app|password: </d;/encoding:/a\
   password: javy@123123
 ' config/database.yml
 
-docker-compose run --rm web bundle exec rails db:create
+docker-compose run --rm --no-deps web bundle exec rails db:create
