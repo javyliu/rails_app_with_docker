@@ -3,6 +3,7 @@
 #Date & Time: 2021-10-20 10:36:34
 #Description:create a rails app by the rapp_in_docker
 
+
 docker-compose run --rm --no-deps web bundle exec rails new . --force --database=postgresql -B
 
 sed -i 's!rubygems.org!gems.ruby-china.com!' Gemfile
@@ -15,4 +16,5 @@ sed -i -r '/username: app|password: </d;/encoding:/a\
   password: javy@123123
 ' config/database.yml
 
+docker-compose run --rm --no-deps web bundle install
 docker-compose run --rm web bundle exec rails db:create

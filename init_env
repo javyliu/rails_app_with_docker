@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+# Author: javy liu
+#Date & Time: 2021-10-20 13:50:30
+#Description: 初始化环璄变量
+
+
+echo CURRENT_UID=$(id -u):$(id -g) > .env
+echo -e "PQ_USER=javy_liu\nPQ_PASSWORD=123123" >>.env
+

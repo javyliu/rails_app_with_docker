@@ -29,8 +29,7 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 
-RUN bundle config disable_platform_warnings true \
-    && bundle config set --local path '/usr/local/tmp_bundle'
+RUN bundle install
 
 #生产环境时可用
 #RUN bundle config --global frozen 1 \
@@ -46,4 +45,4 @@ RUN bundle config disable_platform_warnings true \
 
 EXPOSE 3000
 
-CMD ["bundle","exec","rails", "s", "-b", "0.0.0.0"]
+CMD ["sh"]

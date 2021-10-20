@@ -7,22 +7,17 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: javy_liu
-      POSTGRES_PASSWORD: javy@123123
+      POSTGRES_USER: ${PQ_USER}
+      POSTGRES_PASSWORD: ${PQ_PASSORD}
   web:
     container_name: rapp
     build: .
     image: rapp_in_docker:v1
     command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    user: ${CURRENT_UID}
     volumes:
       - .:/app
-      - gem_home:/usr/local/tmp_bundle
     ports:
       - "3000:3000"
     depends_on:
       - db
-
-volumes:
-  gem_home:
-
-
