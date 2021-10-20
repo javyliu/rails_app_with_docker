@@ -8,7 +8,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: ${PQ_USER}
-      POSTGRES_PASSWORD: ${PQ_PASSORD}
+      POSTGRES_PASSWORD: ${PQ_PASSWORD}
   web:
     container_name: rapp
     build: .
