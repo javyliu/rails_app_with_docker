@@ -5,11 +5,10 @@
 
 
 docker-compose run --rm --no-deps web sh <<HERE
-  bundle exec rails new . --force --database=postgresql -B
+  bundle exec rails new . --force --database=postgresql -B --skip-webpack-install
   bundle config set --local path 'vendor/bundle'
   sed -i 's!rubygems.org!gems.ruby-china.com!' Gemfile
   bundle install
-  bundle exec rails webpacker:install
   source .env
   sed -i -r '/username: app|password: </d;/encoding:/a\
     host: db\n  username: '"${PQ_USER}"'\n  password: '"${PQ_PASSWORD}"  config/database.yml
@@ -18,3 +17,5 @@ HERE
 
 
 docker-compose run --rm web bundle exec rails db:create
+
+#if you need webpack ,need docker-compose run --rm --no-deps webbundle exec rails webpacker:install
