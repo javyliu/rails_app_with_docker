@@ -15,6 +15,9 @@ services:
     image: rapp_in_docker:v1
     command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     user: ${CURRENT_UID}
+    environment:
+      HOME: /app
+
     volumes:
       - .:/app
     ports:

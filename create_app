@@ -6,7 +6,13 @@
 
 docker-compose run --rm --no-deps web bundle exec rails new . --force --database=postgresql -B
 
+
+docker-compose run --rm --no-deps web bundle config set --local path 'vendor/bundle'
+
 sed -i 's!rubygems.org!gems.ruby-china.com!' Gemfile
+
+docker-compose run --rm --no-deps web bundle install
+
 
 docker-compose run --rm --no-deps web bundle exec rails webpacker:install
 
